@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="guri.png" />
+    <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-database.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>GameCord™</title>
+    <script src="chat.js"></script>
+    <style>
+        input {
+            width: 90%;
+            border: outset cornflowerblue 2px;
+        }
+
+        button {
+            background-color: black;
+            color: aliceblue;
+            border: outset purple 2px;
+        }
+    </style>
+</head>
+
+<body background="ThisIsAMinecraftWorld.jpg">
+    <div id="log" title="ඞ">
+        <h1>GameCord™</h1>
+        <img src="SusBox.png" style="position: absolute;left:0px ;top:0px ;width: 20%;height: 30%;">
+        <br><br><br><br>
+        <hr>
+        <input id="guri" placeholder="Your Name Sussy Bakka" type="text"><br>
+        <input id="not_a_secret" placeholder="Your Password - Maybe we can sell this" type="password"><br>
+        <hr>
+        <button onclick="loged()">Log-in</button>
+        <label>OR</label>
+        <button onclick="create()">Create Account</button>
+        <br>
+        <p id="error"></p>
+    </div>
+</body>
+
+</html>

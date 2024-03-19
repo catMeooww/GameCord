@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="guri.png" />
+    <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-database.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>GameCord™</title>
+    <script src="chat.js"></script>
+    <style>
+        input {
+            width: 90%;
+            border: outset cornflowerblue 2px;
+        }
+
+        button {
+            background-color: black;
+            color: aliceblue;
+            border: outset purple 2px;
+        }
+    </style>
+</head>
+
+<body background="BackgroundDeMadirao.jpg" onload="getConfigData()" style="color: aliceblue;">
+    <div id="header">
+        <br>
+        <label id="user-handler">Loading</label>
+        <button title="log-out" onclick="goTo('index')">X</button>
+        <button title="refresh" onclick="location.reload()">⟳</button>
+        <button title="return" onclick="goTo('main')">⇦</button>
+    </div>
+    <br><br>
+    <h1>Configurations</h1>
+    <div id="configpage">
+        <label>Name | Class: </label><label id="class-handler"></label><br><br>
+        <label>Password: </label><label onclick="showPassword()" id="password-handler">Show</label><br><br>
+        <label>Saved Chats: </label><label id="chatconfigurator"></label><br><br>
+        <h3>Change Class:</h3>
+        <div id="class-chooser">
+            <button class="chatbutton" onclick="changeClass('user')">User</button>
+            <button class="chatbutton msg-gamer" onclick="changeClass('gamer')">Gamer</button>
+            <button class="chatbutton msg-chatter" onclick="changeClass('chatter')">Chatter</button>
+            <button class="chatbutton msg-developer" onclick="changeClass('developer')">Developer</button>
+            <button class="chatbutton msg-minecrafter" onclick="changeClass('minecrafter')">Minecrafter</button>
+            <button class="chatbutton msg-pro" onclick="changeClass('pro')">Pro</button>
+            <button class="chatbutton msg-sniper" onclick="changeClass('sniper')">Sniper</button>
+        </div>
+    </div>
+</body>
+
+</html>

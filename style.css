@@ -1,0 +1,146 @@
+@font-face {
+    font-family: Minecraft;
+    src: url(Minecraft.ttf);
+}
+
+#log {
+    background-image: url(JustAStoneBox.png);
+    background-size: cover;
+    position: relative;
+    left: 20%;
+    top: 120px;
+    width: 60%;
+    height: 300px;
+    border: 2px outset red;
+    text-align: center;
+    color: aliceblue;
+}
+
+#header{
+    background-image: url(JustAStoneBox.png);
+    width: 100%;
+    height: 10%;
+    top:0;
+    left:0;
+    position: fixed;
+    border-bottom: outset 2px ghostwhite;
+    text-align: center;
+    color: aliceblue;
+    font-family: Minecraft;
+    z-index: 10;
+    text-align: left;
+}
+#header button{
+    float: inline-end;
+    background-color: rgba(0, 0, 0, 0.700);
+    border: rgba(0, 0, 0, 0.700) outset 2px;
+    width: 30px;
+    height: 30px;
+}
+#chat-sender{
+    background-image: url(JustAStoneBox.png);
+    width: 70%;
+    height: 10%;
+    bottom:0;
+    right:0;
+    position: fixed;
+    border-top: outset 2px ghostwhite;
+    text-align: center;
+    color: aliceblue;
+    z-index: 1;
+    text-align: left;
+    visibility: hidden;
+}
+#chat-sender div{
+    margin-top: 5px;
+    margin-left: 5px;
+}
+#allchats{
+    background-image: url(JustAStoneBox.png);
+    width: 30%;
+    height: 90%;
+    top:10%;
+    left:0;
+    position: fixed;
+    border-right: ridge 5px black;
+    text-align: center;
+    color: aliceblue;
+    font-family: Minecraft;
+    z-index: 5;
+}
+
+#the_chat{
+    margin-top: 5%;
+    width: 69%;
+    float: right;
+    text-align: center;
+    color: aliceblue;
+}
+
+.chatmsg{
+    background-color: rgba(0, 0, 0, 0.500);
+    border: outset black 2px;
+}
+
+.chatbutton{
+    background-color: rgba(0, 0, 0, 0.300);
+    border: outset rgba(0, 0, 0, 0.350) 2px;
+    padding: 10px;
+    margin: 2px;
+    width: 90%;
+}
+
+#configpage{
+    background-color: rgba(0, 0, 0, 0.600);
+    border: outset black 3px;
+    padding: 5px;
+}
+
+.msg-server{
+    color: plum;
+    text-shadow: 2px 2px 5px blue;
+}
+
+.msg-gamer{
+    color:mediumaquamarine;
+    text-shadow: 2px 2px 5px mediumaquamarine;
+}
+
+.msg-chatter{
+    color:dodgerblue;
+    text-shadow: 2px 2px 5px dodgerblue;
+}
+
+.msg-developer{
+    color:orange;
+    text-shadow: 2px 2px 5px orange;
+}
+
+.msg-youtuber{
+    color:salmon;
+    text-shadow: 2px 2px 5px salmon;
+}
+
+.msg-mod{
+    color:red;
+    text-shadow: 2px 2px 5px red;
+}
+
+.msg-minecrafter{
+    color:green;
+    text-shadow: 2px 2px 5px green;
+}
+
+.msg-pro{
+    color:purple;
+    text-shadow: 2px 2px 5px purple;
+}
+
+.msg-sniper{
+    color:yellow;
+    text-shadow: 2px 2px 5px yellow;
+}
+
+.chatmsg h1:hover{
+    text-decoration: underline;
+}

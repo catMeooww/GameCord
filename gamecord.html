@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="guri.png" />
+    <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-database.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>GameCord™</title>
+    <script src="chat.js"></script>
+    <style>
+        input {
+            width: 90%;
+            border: outset cornflowerblue 2px;
+        }
+
+        button {
+            background-color: black;
+            color: aliceblue;
+            border: outset purple 2px;
+        }
+    </style>
+</head>
+
+<body background="BackgroundDeMadirao.jpg" onload="getChats()">
+    <div id="header">
+        <br>
+        <label id="user-handler">Loading</label>
+        <button title="log-out" onclick="goTo('index')">X</button>
+        <button title="refresh" onclick="location.reload()">⟳</button>
+        <button title="configurations" onclick="goTo('config')">⚙️</button>
+    </div>
+    <div id="allchats">
+        <h1>GameCord Chats</h1>
+        <hr>
+        <input placeholder="add new chat" type="text" id="chatlist"><br><br>
+        <button onclick="addChatList()">Add Chat</button>
+        <button onclick="createChat()">Create Chat</button>
+        <label id="chaterrors"></label>
+        <br>
+        <hr>
+        <div id="allchatsoutput">
+            <p>loading</p>
+        </div>
+    </div>
+    <div id="the_chat">
+        <h1>Welcome to GameCord, select a chat to talk or create one</h1>
+    </div>
+    <div id="chat-sender">
+        <div>
+            <label id="class-handler"></label>
+            <input type="text" placeholder="send a message!" id="msg">
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+</body>
+
+</html>
