@@ -3,7 +3,6 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="guri.png" />
     <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-database.js"></script>
@@ -38,6 +37,9 @@
         <label>Name | Class: </label><label id="class-handler"></label><br><br>
         <label>Password: </label><label onclick="showPassword()" id="password-handler">Show</label><br><br>
         <label>Saved Chats: </label><label id="chatconfigurator"></label><br><br>
+        <hr>
+        <label>Mode:</label><button>Enable SUS Mode</button>
+        <hr>
         <h3>Change Class:</h3>
         <div id="class-chooser">
             <button class="chatbutton" onclick="changeClass('user')">User</button>

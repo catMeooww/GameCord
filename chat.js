@@ -21,19 +21,28 @@ function loged() {
   user = document.getElementById("guri").value;
   password = document.getElementById("not_a_secret").value;
   if (user != "" && password != "") {
-    var userref = firebase.database().ref("/users/" + user + "|" + password + "/status");
+    var userref = firebase.database().ref("/users/" + user + "/status");
+    var passref = firebase.database().ref("/users/" + user + "/password");
     var isUserCreated;
     var isJoining = false;
     userref.on("value", data => {
       isUserCreated = data.val();
       if (!isJoining) {
         isJoining = true;
-        if (isUserCreated == "online") {
-          localStorage.setItem("Gamecord", user);
-          localStorage.setItem("GamePassword", password);
-          redirect();
+        if (isUserCreated == "online" ) {
+          passref.on("value", data => {
+            canPass = data.val();
+            if(canPass == password){
+              localStorage.setItem("Gamecord", user);
+              localStorage.setItem("GamePassword", password);
+              document.getElementById("error").innerHTML = "Welcome to the Mato";
+              redirect();
+            }else{
+              document.getElementById("error").innerHTML = "Incorrect Password";
+            }
+          })
         } else {
-          document.getElementById("error").innerHTML = "Username or password incorrect";
+          document.getElementById("error").innerHTML = "Incorrect Username";
         }
       }
     });
@@ -46,7 +55,7 @@ function create() {
   user = document.getElementById("guri").value;
   password = document.getElementById("not_a_secret").value;
   if (user != "" && password != "") {
-    var userref = firebase.database().ref("/users/" + user + "|" + password + "/status");
+    var userref = firebase.database().ref("/users/" + user + "/status");
     var isUserCreated;
     var isJoining = false;
     userref.on("value", data => {
@@ -54,14 +63,15 @@ function create() {
       if (!isJoining) {
         isJoining = true;
         if (isUserCreated == null) {
-          firebase.database().ref("/users/").child(user + "|" + password).update({
+          firebase.database().ref("/users/").child(user).update({
+            password: password,
             status: "online",
             class: "user",
             chats: ["Gamecord Chat"]
           });
           document.getElementById("error").innerHTML = "Account Sucessfuly Created";
         } else {
-          document.getElementById("error").innerHTML = "This Username Already Exists";
+          document.getElementById("error").innerHTML = "This username already exists";
         }
       }
     });
@@ -71,14 +81,17 @@ function create() {
 }
 
 function redirect() {
-  window.location = "gamecord.html";
+  document.getElementById("log").style.borderTopColor = "greenyellow";
+  setTimeout(()=>{
+    window.location = "gamecord.html";
+  },300)
 }
 
 function getUserData() {
   if (user == undefined || userPass == undefined) {
     window.location = "index.html";
   }
-  firebase.database().ref("/users/" + user + "|" + userPass + "/class").on("value", data => {
+  firebase.database().ref("/users/" + user + "/class").on("value", data => {
     userClass = data.val();
     document.getElementById("user-handler").className = "msg-" + userClass;
     document.getElementById("user-handler").innerHTML = user;
@@ -93,7 +106,7 @@ function getUserData() {
 
 function getChats() {
   getUserData();
-  firebase.database().ref("/users/" + user + "|" + userPass + "/chats").on('value', function (snapshot) {
+  firebase.database().ref("/users/" + user + "/chats").on('value', function (snapshot) {
     document.getElementById("allchatsoutput").innerHTML = "";
     chatQuantity = 0;
     snapshot.forEach(function (childSnapshot) {
@@ -138,7 +151,7 @@ function getData() {
           document.getElementById("the_chat").innerHTML += div;
         }
       });
-      document.getElementById("the_chat").innerHTML += "<br><br><br><br>";
+      document.getElementById("the_chat").innerHTML += "<div id='chatbottom'><br><br></div><br><br><br><br>";
     });
   }
 }
@@ -148,6 +161,8 @@ function goTo(to) {
     window.location = "index.html";
   }else if(to == "config"){
     window.location = "configurations.html";
+  }else if(to == "bottom"){
+    window.location = "#chatbottom";
   }else{
     window.location = "gamecord.html";
   }
@@ -176,7 +191,7 @@ function addChatList(){
       if (!isJoining) {
         isJoining = true;
         if (isChatCreated == "chat") {
-          firebase.database().ref("/users/" + user + "|" + userPass +"/chats").update({
+          firebase.database().ref("/users/" + user + "/chats").update({
             [chatQuantity]: chatlist
           })
         } else {
@@ -203,7 +218,7 @@ function createChat(){
           firebase.database().ref("/chats/"+chatlist).set({
            chatstatus: "chat"
           })
-          firebase.database().ref("/users/" + user + "|" + userPass +"/chats").update({
+          firebase.database().ref("/users/" + user + "/chats").update({
             [chatQuantity]: chatlist
           })
         } else {
@@ -222,7 +237,7 @@ function getConfigData(){
 
   getUserData();
 
-  firebase.database().ref("/users/" + user + "|" + userPass + "/chats").on('value', function (snapshot) {
+  firebase.database().ref("/users/" + user + "/chats").on('value', function (snapshot) {
     document.getElementById("chatconfigurator").innerHTML = "";
     snapshot.forEach(function (childSnapshot) {
       childKey = childSnapshot.key; childData = childSnapshot.val();
@@ -242,7 +257,7 @@ function showPassword(){
 }
 
 function resetChats(){
-  firebase.database().ref("/users/" + user + "|" + userPass + "/chats").set(
+  firebase.database().ref("/users/" + user + "/chats").set(
     ["Gamecord Chat"]
   )
 }
@@ -255,7 +270,7 @@ function configSpecial(){
 }
 
 function changeClass(yourClass){
-  firebase.database().ref("/users/" + user + "|" + userPass).update({
+  firebase.database().ref("/users/" + user).update({
     class: yourClass
   })
 }

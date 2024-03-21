@@ -3,7 +3,6 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="guri.png" />
     <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-database.js"></script>
@@ -31,6 +30,7 @@
         <button title="log-out" onclick="goTo('index')">X</button>
         <button title="refresh" onclick="location.reload()">⟳</button>
         <button title="configurations" onclick="goTo('config')">⚙️</button>
+        <button title="chat bottom" onclick="goTo('bottom')">↓</button>
     </div>
     <div id="allchats">
         <h1>GameCord Chats</h1>
@@ -47,6 +47,7 @@
     </div>
     <div id="the_chat">
         <h1>Welcome to GameCord, select a chat to talk or create one</h1>
+        <div id="chatbottom"><br><br></div>
     </div>
     <div id="chat-sender">
         <div>
