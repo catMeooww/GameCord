@@ -23,7 +23,7 @@
     </style>
 </head>
 
-<body background="BackgroundDeMadirao.jpg" onload="getConfigData()" style="color: aliceblue;">
+<body background="BackgroundDeMadirao.jpg" onload="getConfigData()" style="color: aliceblue;"  id="thebg">
     <div id="header">
         <br>
         <label id="user-handler">Loading</label>
@@ -38,18 +38,28 @@
         <label>Password: </label><label onclick="showPassword()" id="password-handler">Show</label><br><br>
         <label>Saved Chats: </label><label id="chatconfigurator"></label><br><br>
         <hr>
-        <label>Mode:</label><button>Enable SUS Mode</button>
+        <label>Dark Wood Theme:</label><span class="configoption"><button onclick="darkTheme()" class="active">On</button><button
+            onclick="defaultTheme()" class="desactive">Off</button></span>
+        <br><br>
+        <label>Sus Mode:</label><span class="configoption"><button onclick="location.reload()" class="active">On</button><button
+            onclick="location.reload()" class="desactive">Off</button></span>
+        <br><br>
+        <hr>
+        <label>View our other sites:  </label><button onclick="catmeow()" class="active">Click Me</button>
+        <br><br>
         <hr>
         <h3>Change Class:</h3>
-        <div id="class-chooser">
-            <button class="chatbutton" onclick="changeClass('user')">User</button>
-            <button class="chatbutton msg-gamer" onclick="changeClass('gamer')">Gamer</button>
-            <button class="chatbutton msg-chatter" onclick="changeClass('chatter')">Chatter</button>
-            <button class="chatbutton msg-developer" onclick="changeClass('developer')">Developer</button>
-            <button class="chatbutton msg-minecrafter" onclick="changeClass('minecrafter')">Minecrafter</button>
-            <button class="chatbutton msg-pro" onclick="changeClass('pro')">Pro</button>
-            <button class="chatbutton msg-sniper" onclick="changeClass('sniper')">Sniper</button>
-        </div>
+        <center>
+            <div id="class-chooser">
+                <button class="chatbutton" onclick="changeClass('user')">User</button>
+                <button class="chatbutton msg-gamer" onclick="changeClass('gamer')">Gamer</button>
+                <button class="chatbutton msg-chatter" onclick="changeClass('chatter')">Chatter</button>
+                <button class="chatbutton msg-developer" onclick="changeClass('developer')">Developer</button>
+                <button class="chatbutton msg-minecrafter" onclick="changeClass('minecrafter')">Minecrafter</button>
+                <button class="chatbutton msg-pro" onclick="changeClass('pro')">Pro</button>
+                <button class="chatbutton msg-sniper" onclick="changeClass('sniper')">Sniper</button>
+            </div>
+        </center>
     </div>
 </body>
 

@@ -4,6 +4,7 @@ var userClass = "";
 var selectedChat = "";
 var chatQuantity = 0;
 var isConfigPage = false;
+var theme = localStorage.getItem("theme");
 
 const firebaseConfig = {
   apiKey: "AIzaSyB4aKcBiy9PfDS42V_7CN60w3s7Lq5A8TY",
@@ -90,6 +91,9 @@ function redirect() {
 function getUserData() {
   if (user == undefined || userPass == undefined) {
     window.location = "index.html";
+  }
+  if(theme == "dark"){
+    document.getElementById("thebg").style.backgroundImage = "url(WoodNegra.jpg)";
   }
   firebase.database().ref("/users/" + user + "/class").on("value", data => {
     userClass = data.val();
@@ -273,4 +277,18 @@ function changeClass(yourClass){
   firebase.database().ref("/users/" + user).update({
     class: yourClass
   })
+}
+
+//theme
+
+function darkTheme(){
+  localStorage.setItem("theme","dark");
+  location.reload();
+}
+function defaultTheme(){
+  localStorage.setItem("theme","default");
+  location.reload();
+}
+function catmeow(){
+  window.location = "https://catmeooww.github.io/CatMeooww/catmeoowwProjects.html";
 }

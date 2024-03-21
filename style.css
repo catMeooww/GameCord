@@ -144,3 +144,19 @@
 .chatmsg h1:hover{
     text-decoration: underline;
 }
+
+.configoption{
+    margin-right: 75%;
+    float: inline-end;
+}
+
+.configoption .active{
+background-color: greenyellow;
+border: outset olive 2px;
+color: black;
+}
+
+.configoption .desactive{
+    background-color: red;
+    border: outset brown 2px;
+    }
