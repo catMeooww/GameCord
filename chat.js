@@ -95,6 +95,12 @@ function getUserData() {
   if(theme == "dark"){
     document.getElementById("thebg").style.backgroundImage = "url(WoodNegra.jpg)";
   }
+  firebase.database().ref("/users/" + user + "/password").on("value", data => {
+    realPass = data.val();
+    if(!userPass == realPass){
+      window.location = "index.html";
+    }
+  })
   firebase.database().ref("/users/" + user + "/class").on("value", data => {
     userClass = data.val();
     document.getElementById("user-handler").className = "msg-" + userClass;
